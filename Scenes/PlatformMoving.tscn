@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnghfb5lvgsa5"]
+
+[ext_resource type="Script" path="res://Scripts/PlatformMoving.gd" id="1_4j5br"]
+[ext_resource type="Texture2D" uid="uid://d2m8qf54p78pp" path="res://Assets/textures/grids/Orange/texture_03.png" id="2_qbrw1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_muxv6"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrr18"]
+albedo_texture = ExtResource("2_qbrw1")
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nh6yi"]
+size = Vector3(5, 1, 5)
+
+[node name="PlatformMoving" type="AnimatableBody3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_4j5br")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_muxv6")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_yrr18")
+mesh = SubResource("BoxMesh_nh6yi")
